@@ -10,18 +10,18 @@ if (req.method === 'PATCH'){
     const {id} = req.query
     const {nama,harga,lat,lng}= req.body
     const data = await prisma.map.update({where:{
-      id:parseInt(id as string )
+      id:Number(id)
     },
     data:{
         nama:nama as string,
-        harga:parseFloat(harga),
+        harga:Number(harga),
         lat:parseFloat(lat),
         lng:parseFloat(lng)
     }
     }
     )
     if(!data){
-        return res.status(404).json({message:"User not found"})
+        return res.status(404).json({message:"data gagal"})
      }else{
         return res.status(200).json({message:'data berhasil diubah',data})
      }

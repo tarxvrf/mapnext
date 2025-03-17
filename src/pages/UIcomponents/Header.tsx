@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function Header() {
@@ -17,7 +18,7 @@ function Header() {
         </div>
         <div className="avatar p-2">
           <div className="w-14 rounded-full ">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            <Image height={300} width={300} src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt={""} />
           </div>
         </div>
       </div>

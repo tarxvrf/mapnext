@@ -1,0 +1,9 @@
+.titlelogin{
+@apply flex justify-center card-title pb-5 text-xl lg:text-3xl text-info;
+}
+
+.inputtext{
+    @apply rounded-md p-2 bg-transparent input border;
+
+}
+
