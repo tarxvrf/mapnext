@@ -94,6 +94,11 @@ export default function Cluster() {
     mutationKey: ["allproduk"],
     onSuccess: () => {
       queryclient.invalidateQueries();
+      Swal.fire({
+        title: "Berhasil",
+        text: "Data Berhasil Diupdate",
+        icon: "success",
+      })
     },
     onError: () => {
       Swal.fire({
@@ -187,7 +192,7 @@ export default function Cluster() {
 
 
   return (
-    <div className="ml-32 px-10 py-10 overflow-y-auto h-[800px] overflow-x-auto bg-teal-900 ">
+    <div>
       <div className="flex justify-center text-2xl font-bold items-center">
         <div>
           <h1 className="text-center">Pengelolaan Cluster</h1>
@@ -199,10 +204,10 @@ export default function Cluster() {
           encType=" multipart/form-data"
           className="flex flex-col gap-5"
         >
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 ">
             <label>Nama Cluster</label>
             <input
-              className="border rounded-xl py-1 pl-2"
+              className="input rounded-xl bg-transparent"
               type="text"
               placeholder="nama"
               value={nama}
@@ -213,7 +218,7 @@ export default function Cluster() {
           <div className="flex flex-col gap-1">
             <label htmlFor="">Harga</label>
             <input
-              className="border rounded-xl py-1 pl-2"
+              className="input rounded-xl bg-transparent"
               type="text"
               placeholder="Rp 0"
               value={harga}
@@ -228,7 +233,7 @@ export default function Cluster() {
               type="text"
               placeholder="0"
               value={lat}
-              className="border rounded-xl py-1 pl-2"
+              className="input rounded-xl bg-transparent"
               onChange={(e) => setlat(e.target.value)}
             />
           </div>
@@ -237,7 +242,7 @@ export default function Cluster() {
             {" "}
             <label htmlFor="">Longtitude</label>
             <input
-              className="border rounded-xl py-1 pl-2"
+              className="input rounded-xl bg-transparent"
               type="text"
               placeholder="0"
               value={lng}
@@ -245,7 +250,7 @@ export default function Cluster() {
             />
           </div>        
 
-          <button type="submit" className="btn btn-info btn-xs">
+          <button type="submit" className="btn btn-info btn-sm rounded-xl">
             Save
           </button>
         </form>
@@ -298,13 +303,14 @@ export default function Cluster() {
 
       <div>
         <dialog ref={modref} className="modal">
-          <div className="modal-box">
+          <div className="modal-box bg-teal-800">
             <h3 className="font-bold text-lg">Hello!</h3>
             <p className="py-4">Silahkan Ubah Data yg diinginkan</p>
-            <div>
+            <div className="flex flex-col gap-2">
               <div className="flex flex-col gap-1">
                 <label htmlFor="">Nama perumahan</label>
                 <input
+                 className="input rounded-xl bg-transparent"
                   type="text"
                   value={modnama}
                   onChange={(e) => setmodnama(e.target.value)}
@@ -314,6 +320,7 @@ export default function Cluster() {
               <div className="flex flex-col gap-1">
                 <label htmlFor="">Harga</label>
                 <input
+                  className="input rounded-xl bg-transparent"
                   type="text"
                   value={modharga}
                   onChange={(e) => setmodharga(Number(e.target.value))}
@@ -326,7 +333,7 @@ export default function Cluster() {
                 <input
                   type="text"
                   value={modlat}
-                  className="w-20"
+                  className="w-20 input rounded-xl bg-transparent"
                   onChange={(e) => setmodlat(e.target.value)}
                 />
               </div>
@@ -337,7 +344,7 @@ export default function Cluster() {
                 <input
                   type="text"
                   value={modlng}
-                  className="w-20"
+                  className="w-20 input rounded-xl bg-transparent"
                   onChange={(e) => setmodlng(e.target.value)}
                 />
               </div>
@@ -345,10 +352,10 @@ export default function Cluster() {
               <div className="modal-action">
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
-                  <button className="btn" onClick={() => modsave(id)}>
+                  <button className="btn mr-2 btn-info" onClick={() => modsave(id)}>
                     Save
                   </button>
-                  <button className="btn">Close</button>
+                  <button className="btn btn-error">Close</button>
                 </form>
               </div>
             </div>

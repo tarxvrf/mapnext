@@ -1,6 +1,7 @@
 
 import { useRouter } from "next/router";
 import React from "react";
+import Image from "next/image";
 
 function Header() {
   const router = useRouter()
@@ -14,10 +15,10 @@ function Header() {
   }
 
   return (
-    <div className="ml-32 w-[calc(100%-128px)] flex items-center justify-between bg-teal-600 ">
+    <div className="fixed z-[10] ml-32 w-[calc(100%-128px)] flex items-center justify-between bg-teal-600 shadow-3xl shadow-black">
       <div className="px-5">
         <input
-          className="input input-bordered input-sm"
+          className="input input-sm bg-transparent input-warning"
           type="email"
           placeholder="Search"
         />
@@ -25,11 +26,11 @@ function Header() {
 
       <div className="flex flex-row items-center justify-center gap-3">
         <div>
-          <button className="btn btn-xs" onClick={handlelogout }>LogOut</button>
+          <button className="btn btn-xs btn-error" onClick={handlelogout }>LogOut</button>
         </div>
-        <div className="avatar p-2">
-          <div className="w-14 rounded-full ">
-       
+        <div className="avatar  ">
+          <div className="w-12 mr-2">
+              <Image width={100} height={100} src="/assets/user.png" alt="Avatar" />
           </div>
         </div>
       </div>

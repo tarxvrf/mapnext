@@ -7,7 +7,10 @@ function Framedashboard({children}:{children:React.ReactNode}) {
     <div>
         <Header/>
        <Menu/>
-      {children}
+       <div className="ml-32 px-10 pt-20 overflow-y-auto h-[calc[100%-128px]] overflow-x-auto w-[calc[100%-64px]] bg-teal-900 ">
+        {children}
+       </div>
+      
     </div>
   )
 }
