@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Icon, icon } from "leaflet";
+import { useQuery } from "@tanstack/react-query";
+
 
 
 // Dynamically import react-leaflet components to avoid SSR issues
@@ -14,10 +14,10 @@ const MapContainer = dynamic(
   //{ ssr: false }
 //);
 const CircleMarker = dynamic(()=>import ('react-leaflet').then((mod)=>mod.CircleMarker), { ssr: false });
-const Marker = dynamic(
-  () => import("react-leaflet").then((mod) => mod.Marker),
-  { ssr: false }
-);
+//const Marker = dynamic(
+  //() => import("react-leaflet").then((mod) => mod.Marker),
+  //{ ssr: false }
+//);
 const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
   ssr: false,
 });
@@ -43,7 +43,7 @@ type Props = {
 
 const MapComponent: React.FC = () => {
   const [position, setPosition] = useState<Position>({ lat: 51, lng: 20.09 });
-  const [datas, setdatas] = useState<Props[]>([]);
+
  
   const fetchdata= async () => {
     const response = await fetch("/api/getposisi");
@@ -59,8 +59,8 @@ const MapComponent: React.FC = () => {
   useEffect(() => {
     // Here you can update the position dynamically if needed
     fetchdata()
-    setPosition({ lat: 51.505, lng: -0.09 });
-  }, []);
+    setPosition({ lat: 51.505, lng: -0.09 })
+  }, [])
   
   //const customIcon = new Icon({
     //iconUrl: '/markericon.png', // Path to your custom image
@@ -75,7 +75,7 @@ const MapComponent: React.FC = () => {
       attributionControl={false}
       center={[position.lat, position.lng]}
       zoom={14}
-      className="w-full h-[600px]"
+      className="w-full h-[600px] "
     >
       {data && data.map((item:Props, index:number) => (
        <CircleMarker  key={index} center={[item.lat, item.lng]} radius={4} fillColor="black">
@@ -113,7 +113,7 @@ const MapComponent: React.FC = () => {
       
        
     </MapContainer>
-  );
-};
+  )
+}
 
-export default MapComponent;
+export default MapComponent

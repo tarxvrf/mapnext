@@ -5,13 +5,14 @@ import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const router = useRouter();
+  const router = useRouter();  
   const handlesubmit = async () => {
     if (!formik.values.email && !formik.values.password) {
       return null;
     }
     if(formik.values.email ==="admin@mail" && formik.values.password ==="admin123"){
-      router.push("/dashboard/cluster")
+      sessionStorage.setItem("user",JSON.stringify({name:"admin@mail"}))
+      router.push("/dashboard")
       Swal.fire({
         title: "Good job!",
         text: "Login berhasil",

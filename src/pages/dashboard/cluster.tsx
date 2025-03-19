@@ -44,7 +44,7 @@ export default function Cluster() {
   const [modlat, setmodlat] = useState("");
   const [modlng, setmodlng] = useState("");
   const [id, setid] = useState(0);
-  const [gbr, setgbr] = useState("");
+  
   const queryclient = useQueryClient();
 
   const updatedata = async (id: number) => {
@@ -187,7 +187,7 @@ export default function Cluster() {
 
 
   return (
-    <div className="px-10 py-10 overflow-y-auto overflow-x-auto">
+    <div className="ml-32 px-10 py-10 overflow-y-auto h-[800px] overflow-x-auto bg-teal-900 ">
       <div className="flex justify-center text-2xl font-bold items-center">
         <div>
           <h1 className="text-center">Pengelolaan Cluster</h1>
