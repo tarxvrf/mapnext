@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useRouter } from "next/router";
+
 const linkmenu=[
   { name:"Home", path:"/"},
   { name:"Contact", path:"/contact"}, 
@@ -13,8 +13,7 @@ const linkauth=[
   { name:"Sign In", path:"/login"},
 ]
 
-const Navbar = () => {
-  const router = useRouter()
+const Navbar = () => { 
   const path = usePathname();  
   const [isClient, setIsClient] = useState(false)
  

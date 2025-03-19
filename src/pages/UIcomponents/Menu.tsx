@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { FaHome, FaUserAlt } from "react-icons/fa";
+import {FaUserAlt } from "react-icons/fa";
 
 import { IoSettings } from "react-icons/io5";
 import { MdAccountBalance, MdAccountBalanceWallet, MdPermContactCalendar } from "react-icons/md";
