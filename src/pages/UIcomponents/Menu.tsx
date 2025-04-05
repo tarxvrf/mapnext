@@ -18,20 +18,20 @@ function Menu() {
         <ul className="flex flex-col gap-5 ">
           <li>
             <Link href="/dashboard/cluster"  className="flex flex-row w-full items-center gap-3 px-3 py-2 hover:bg-amber-400 rounded-xl">
-            <TbReport className="text-xl" />
-             <span className="text-sm">Report </span> 
+            <TbReport className="text-2xl" />
+             <span className="text-xs">Report </span> 
+            </Link>
+          </li>
+          <li>
+            <Link href="/dashboard/sales"  className="flex flex-row w-full items-center gap-3 px-3 py-2 hover:bg-amber-400 rounded-xl ">
+              <MdAccountBalanceWallet className="text-2xl" />
+             <span className="text-xs">Sales</span> 
             </Link>
           </li>
           <li>
             <Link href="/dashboard/cluster"  className="flex flex-row w-full items-center gap-3 px-3 py-2 hover:bg-amber-400 rounded-xl ">
-              <MdAccountBalanceWallet className="text-xl" />
-             <span className="text-sm">Sales</span> 
-            </Link>
-          </li>
-          <li>
-            <Link href="/dashboard/cluster"  className="flex flex-row w-full items-center gap-3 px-3 py-2 hover:bg-amber-400 rounded-xl ">
-              <MdPermContactCalendar className="text-xl" />
-             <span className="text-sm">Absensi</span> 
+              <MdPermContactCalendar className="text-2xl" />
+             <span className="text-xs">Absensi</span> 
             </Link>
           </li>
           <li>

@@ -6,7 +6,7 @@ function Frame({children}:{children:React.ReactNode}) {
   return (
     <div>
     <Navbar/>
-      <div >
+      <div className='pt-[60px]' >
       {children}
       </div>
     </div>

@@ -1,0 +1,28 @@
+.mainhero{
+  background-image: url('/assets/banner.png');
+  background-size:cover;
+  background-position: 100% 0%;
+  background-repeat: no-repeat;
+  @apply  sm:h-[800px] h-[300px] mt-16 w-full flex flex-col border;
+}
+.heroframetitle{
+  @apply flex flex-col lg:ml-[200px]  gap-5 mt-[20%] sm:mt-[30%] lg:mt-[20%] items-center sm:items-start sm:ml-[100px] 
+}
+.herotitle{
+  @apply sm:text-6xl lg:text-8xl text-3xl sm:text-start text-center font-bold;  
+  background: linear-gradient(45deg, rgb(59, 11, 233) 0%, rgb(6, 3, 168) 0%, rgb(201, 8, 188) 62%, rgb(10, 6, 240) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.herosubtitle{
+  @apply text-2xl sm:text-4xl lg:text-6xl font-semibold ;
+  background: linear-gradient(45deg, rgb(39, 39, 41) 0%, rgb(46, 44, 44) 0%, rgb(250, 248, 250) 62%, rgb(3, 2, 41) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+.herobutton{
+  @apply btn btn-xs sm:btn-md lg:btn-lg btn-info sm:mt-5 rounded-4xl
+
+}

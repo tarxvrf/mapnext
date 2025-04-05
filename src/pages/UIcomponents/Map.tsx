@@ -75,10 +75,10 @@ const MapComponent: React.FC = () => {
       attributionControl={false}
       center={[position.lat, position.lng]}
       zoom={14}
-      className="w-full h-[600px] "
+      className="w-full h-[500px] "
     >
       {data && data.map((item:Props, index:number) => (
-       <CircleMarker  key={index} center={[item.lat, item.lng]} radius={4} fillColor="black">
+       <CircleMarker  key={index} center={[item.lat, item.lng]} radius={4} color="red">
           <Popup>
             {item.nama} <p>{item.harga}</p>
           </Popup>
@@ -104,10 +104,10 @@ const MapComponent: React.FC = () => {
       </SvgOverlay>
     
       <ImageOverlay
-        url="/magenta.png" // Path to your image
+        url="/assets/sideplane.png" // Path to your image
         bounds={[
-          [51.491, -0.12],
-          [51.52, -0.08],
+          [51.491, -0.17],//lebar
+          [51.52, -0.05],
         ]} // Northeast corner (Lat, Lng)}  // Define the bounds to place the image on the map
       />
       

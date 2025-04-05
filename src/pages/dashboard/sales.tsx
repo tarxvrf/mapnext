@@ -8,8 +8,8 @@ interface Map {
   id: number;
   nama: string;
   harga: number;
-  lat: string;
-  lng: string;
+  booking: string;
+  total: string;
 }
 
 const fetchdata = async () => {
@@ -37,8 +37,8 @@ const deletedata = async (id: number) => {
 export default function Cluster() {
   const [nama, setnama] = useState("");
   const [harga, setharga] = useState(0);
-  const [lat, setlat] = useState("");
-  const [lng, setlng] = useState("");
+  const [booking, setbooking] = useState("");
+  const [total, settotal] = useState("");
   const modref = useRef<HTMLDialogElement>(null);
   const [modnama, setmodnama] = useState("");
   const [modharga, setmodharga] = useState(0);
@@ -119,11 +119,11 @@ export default function Cluster() {
 
   function handlesave(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    mutation.mutate({ nama: nama, harga: harga, lat: lat, lng: lng, id: id });
+    mutation.mutate({ nama: nama, harga: harga, booking: booking, total: total, id: id });
     setnama("");
     setharga(0);
-    setlat("");
-    setlng("");
+    setbooking("");
+    settotal(total);
   }
 
   useEffect(() => {
@@ -191,12 +191,11 @@ export default function Cluster() {
     }
   }
 
-
   return (
     <div>
       <div className="flex justify-center text-2xl font-bold items-center">
         <div>
-          <h1 className="text-center">Pengelolaan Cluster</h1>
+          <h1 className="text-center">Penjualan Unit Cluster</h1>
         </div>
       </div>
       <div className="w-64 pt-10">
@@ -205,6 +204,7 @@ export default function Cluster() {
           encType=" multipart/form-data"
           className="flex flex-col gap-5"
         >
+          <div className="flex flex-row gap-3">
           <div className="flex flex-col gap-1 ">
             <label>Nama Cluster</label>
             <input
@@ -216,6 +216,20 @@ export default function Cluster() {
               value={nama}
               onChange={(e) => setnama(e.target.value)}
             />
+          </div>
+
+          <div className="flex flex-col gap-1 ">
+            <label>Unit</label>
+            <input
+              className="input rounded-xl bg-transparent"
+              type="text"
+              name="nama"
+              required ={true}
+              placeholder="nama"
+              value={nama}
+              onChange={(e) => setnama(e.target.value)}
+            />
+          </div>
           </div>
 
           <div className="flex flex-col gap-1">
@@ -232,29 +246,41 @@ export default function Cluster() {
 
           <div className="flex flex-col gap-1">
             {" "}
-            <label htmlFor="">Latitude</label>
+            <label >Booking Fee</label>
             <input
               type="text"
               placeholder="0"
-              value={lat}
+              
+              value={booking}
               required ={true}
               className="input rounded-xl bg-transparent"
-              onChange={(e) => setlat(e.target.value)}
+              onChange={(e) => setbooking(e.target.value)}
             />
           </div>
 
+          <div className="flex flex-col gap-1 ">
+            {" "}
+            <label >Status Unit</label>
+            <select defaultValue={"Ready"}
+              className="select rounded-xl bg-teal-900">
+                <option>Ready</option>
+              <option>Booked</option>
+              <option>Sold</option>
+            </select>
+          </div>  
+
           <div className="flex flex-col gap-1">
             {" "}
-            <label htmlFor="">Longtitude</label>
+            <label htmlFor="">Total Harga</label>
             <input
               className="input rounded-xl bg-transparent"
               type="text"
               required ={true}
               placeholder="0"
-              value={lng}
-              onChange={(e) => setlng(e.target.value)}
+              value={harga-Number(booking)}
+              onChange={(e)=>settotal(e.target.value)}
             />
-          </div>        
+          </div>           
 
           <button type="submit" className="btn btn-info btn-sm rounded-xl">
             Save
